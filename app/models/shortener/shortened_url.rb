@@ -29,7 +29,7 @@ class Shortener::ShortenedUrl < ActiveRecord::Base
     # so check the datastore
     cleaned_url = clean_url(orig_url)
     scope = owner ? owner.shortened_urls : self
-    scope.where(:url => cleaned_url).first_or_create
+    Shortener.allow_duplicates ? scope.create(:url => cleaned_url) : scope.where(:url => cleaned_url).first_or_create
   end
 
   # return shortened url on success, nil on failure

@@ -19,6 +19,10 @@ module Shortener
   mattr_accessor :charset
   self.charset = :alphanum
 
+  # setting for allowing duplicate urls
+  mattr_accessor :allow_duplicates
+  self.allow_duplicates = false
+
   def self.key_chars
     CHARSETS[charset]
   end
