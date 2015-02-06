@@ -21,7 +21,7 @@ module Shortener
 
   # setting for allowing duplicate urls
   mattr_accessor :allow_duplicates
-  self.allow_duplicates = false
+  self.allow_duplicates = true
 
   def self.key_chars
     CHARSETS[charset]
