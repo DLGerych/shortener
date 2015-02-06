@@ -5,8 +5,15 @@ class CreateShortenedUrlsTable < ActiveRecord::Migration
       t.integer :owner_id
       t.string :owner_type, :limit => 20
 
+      t.integer :user_id
+
       # the real url that we will redirect to
       t.string :url, :null => false
+
+      t.string :url_type
+
+      # description
+      t.string :description
 
       # the unique key
       t.string :unique_key, :limit => 10, :null => false
